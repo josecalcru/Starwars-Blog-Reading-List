@@ -5,8 +5,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			peopleList: []
 		},
 		actions: {
-			fetchpeople: async () => {
-				const url = "https://www.swapi.dev/api/people/";
+			fetchPeople: async () => {
+				const url = "https://www.swapi.tech/api/people/";
 				const config = {
 					method: "GET",
 					headers: {
@@ -16,6 +16,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const response = await fetch(url, config);
 				const json = await response.json();
 				console.log(">>Data", json.results);
+				setStore({ peopleList: json.results });
+			},
+			setFavorites: async name => {
+				const store = getStore();
+				// Los ... esparce lo que tengo en el arreglo y genera un arregla nuevo. con esto nunca voy a perder mis favoritos antiguos.
+				setStore({ favorites: [...store.favorites, name] });
 			},
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {

@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Navbar, Image, Nav, Dropdown } from "react-bootstrap";
+import { Context } from "../store/appContext";
 
 export const NavbarMenu = () => {
+	const { store, actions } = useContext(Context);
 	return (
 		<Navbar>
 			<Navbar.Brand>
@@ -21,12 +23,17 @@ export const NavbarMenu = () => {
 			<Dropdown>
 				<Dropdown.Toggle variant="success" id="dropdown-basic">
 					Dropdown Button
+					{store.favorites.length}
 				</Dropdown.Toggle>
 
 				<Dropdown.Menu>
-					<Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-					<Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-					<Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+					{store.favorites.map((item, index) => {
+						return (
+							<Dropdown.Item key={index} href="#/action-1">
+								{item}
+							</Dropdown.Item>
+						);
+					})}
 				</Dropdown.Menu>
 			</Dropdown>
 		</Navbar>
