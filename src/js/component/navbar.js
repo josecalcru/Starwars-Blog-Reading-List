@@ -1,36 +1,34 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Navbar, Image, Nav, Dropdown } from "react-bootstrap";
 
-export const Navbar = () => {
+export const NavbarMenu = () => {
 	return (
-		<nav className="navbar navbar-light bg-light mb-3">
-			<Link to="/">
-				<span className="navbar-brand mb-0 h1">
-					{" "}
-					<img
+		<Navbar>
+			<Navbar.Brand>
+				<Link to="/">
+					<Image
 						src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/756ac3cf-5cef-4bfe-a74e-43e4d713903a/d98b8ef-f36069b2-9799-45c0-9549-7ecac198f0f4.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvNzU2YWMzY2YtNWNlZi00YmZlLWE3NGUtNDNlNGQ3MTM5MDNhXC9kOThiOGVmLWYzNjA2OWIyLTk3OTktNDVjMC05NTQ5LTdlY2FjMTk4ZjBmNC5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.dZZyWi0-K0CT6t8QOFdcXPkR7LYFO2X9KjETXRr6m4I"
-						width="100"
-						height="45"
+						height="50"
+						alt="Start Wars"
 					/>
-				</span>
-			</Link>
+				</Link>
+			</Navbar.Brand>
 
-			<div className="dropdown">
-				<button
-					className="btn btn-primary dropdown-toggle"
-					type="button"
-					id="dropdownMenuButton"
-					data-toggle="dropdown"
-					aria-haspopup="true"
-					aria-expanded="false">
-					Favourites
-				</button>
-				<div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-					<a className="dropdown-item" href="#">
-						Action
-					</a>
-				</div>
-			</div>
-		</nav>
+			<Nav className="mr-auto" />
+			<Link className="" to="/characters" />
+			<Link className="" to="/planets" />
+			<Dropdown>
+				<Dropdown.Toggle variant="success" id="dropdown-basic">
+					Dropdown Button
+				</Dropdown.Toggle>
+
+				<Dropdown.Menu>
+					<Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+					<Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+					<Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+				</Dropdown.Menu>
+			</Dropdown>
+		</Navbar>
 	);
 };
