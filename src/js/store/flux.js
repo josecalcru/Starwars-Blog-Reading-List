@@ -18,6 +18,32 @@ const getState = ({ getStore, getActions, setStore }) => {
 				console.log(">>Data", json.results);
 				setStore({ peopleList: json.results });
 			},
+			fetchPlanets: async () => {
+				const url = "https://www.swapi.tech/api/planets/";
+				const config = {
+					method: "GET",
+					headers: {
+						"Content-type": "application/json"
+					}
+				};
+				const response = await fetch(url, config);
+				const json = await response.json();
+				console.log(">>Data", json.results);
+				setStore({ peopleList: json.results });
+			},
+			fetchStarships: async () => {
+				const url = "https://www.swapi.tech/api/starships/";
+				const config = {
+					method: "GET",
+					headers: {
+						"Content-type": "application/json"
+					}
+				};
+				const response = await fetch(url, config);
+				const json = await response.json();
+				console.log(">>Data", json.results);
+				setStore({ peopleList: json.results });
+			},
 			setFavorites: async name => {
 				const store = getStore();
 				// Los ... esparce lo que tengo en el arreglo y genera un arregla nuevo. con esto nunca voy a perder mis favoritos antiguos.
