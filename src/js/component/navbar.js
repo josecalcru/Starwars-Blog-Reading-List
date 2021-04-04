@@ -10,8 +10,8 @@ export const NavbarMenu = () => {
 			<Navbar.Brand>
 				<Link to="/">
 					<Image
-						src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/756ac3cf-5cef-4bfe-a74e-43e4d713903a/d98b8ef-f36069b2-9799-45c0-9549-7ecac198f0f4.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvNzU2YWMzY2YtNWNlZi00YmZlLWE3NGUtNDNlNGQ3MTM5MDNhXC9kOThiOGVmLWYzNjA2OWIyLTk3OTktNDVjMC05NTQ5LTdlY2FjMTk4ZjBmNC5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.dZZyWi0-K0CT6t8QOFdcXPkR7LYFO2X9KjETXRr6m4I"
-						height="50"
+						src="https://fontmeme.com/permalink/210404/c3104ffe606f945b0acdc7b6d24c610b.png"
+						height="100"
 						alt="Start Wars"
 					/>
 				</Link>

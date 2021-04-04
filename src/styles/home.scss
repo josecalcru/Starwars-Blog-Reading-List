@@ -1,0 +1,37 @@
+
+
+body{
+    background-image: url( "https://static.vecteezy.com/system/resources/previews/002/008/069/large_2x/3d-starry-night-sky-background-free-photo.jpg")
+}
+h1{
+    color: white;
+}
+
+.titulos{
+    height: 5rem
+}
+
+.carousel-holder .carousel-item {
+    position: absolute;
+    left: 0;
+    top: 0;
+    -webkit-transition: all 1s ease 0s;
+    transition: all 1s ease 0s;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+.carousel-holder .carousel-item .img-responsive {
+    position: absolute;
+    left: 0;
+    top: 0;
+    -webkit-transition: all 1s ease 0s;
+    transition: all 1s ease 0s;
+    transform: perspective(100vw) translateZ(15vw);
+    opacity: 0;
+}
+
+.carousel-holder .carousel-item.active .img-responsive {
+    opacity: 1;
+    transform: perspective(100vw) translateZ(0);
+}

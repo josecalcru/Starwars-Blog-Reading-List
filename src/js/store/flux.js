@@ -2,7 +2,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			favorites: [],
-			peopleList: []
+			peopleList: [],
+			planetsList: [],
+			vehicleList: []
 		},
 		actions: {
 			fetchPeople: async () => {
@@ -29,7 +31,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const response = await fetch(url, config);
 				const json = await response.json();
 				console.log(">>Data", json.results);
-				setStore({ peopleList: json.results });
+				setStore({ planetsList: json.results });
 			},
 			fetchStarships: async () => {
 				const url = "https://www.swapi.tech/api/starships/";
@@ -42,12 +44,25 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const response = await fetch(url, config);
 				const json = await response.json();
 				console.log(">>Data", json.results);
-				setStore({ peopleList: json.results });
+				setStore({ vehicleList: json.results });
 			},
 			setFavorites: async name => {
 				const store = getStore();
 				// Los ... esparce lo que tengo en el arreglo y genera un arregla nuevo. con esto nunca voy a perder mis favoritos antiguos.
-				setStore({ favorites: [...store.favorites, name] });
+				function arrayRemove(arr, value) {
+					return arr.filter(function(ele) {
+						return ele != value;
+					});
+				}
+
+				if (store.favorites.includes(name)) {
+					var result = arrayRemove(store.favorites, name);
+					console.log(result);
+					setStore({ favorites: result });
+					console.log("aaa");
+				} else {
+					setStore({ favorites: [...store.favorites, name] });
+				}
 			},
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {

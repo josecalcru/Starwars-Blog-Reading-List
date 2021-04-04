@@ -24,7 +24,7 @@ const Layout = () => {
 					<NavbarMenu />
 					<Switch>
 						<Route exact path="/">
-							<Home />
+							<Home className="m-auto" />
 						</Route>
 						<Route exact path="/demo">
 							<Demo />
