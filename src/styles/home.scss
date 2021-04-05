@@ -84,3 +84,19 @@ h1{
 .card-body{
     background-color: black;
 }
+
+.btn-primary {
+    background-color: transparent;
+    color:#FFDE06;
+    border-width: 1px;
+    border-color: #FFDE06;
+}
+
+.btn-primary:hover, .btn:focus {
+    background-color: #FFDE06 !important;
+    color: black !important;
+    border: 0px !important;
+}
+
+
+

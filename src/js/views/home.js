@@ -10,12 +10,9 @@ export const Home = () => {
 	useEffect(() => {
 		actions.fetchPeople();
 
+		actions.fetchVehicles();
 		actions.fetchPlanets();
-		actions.fetchDetailsPlanets();
-		actions.fetchStarships();
 	}, []);
-
-	let ind;
 
 	return (
 		<div className="row justify-content-center">
@@ -37,7 +34,7 @@ export const Home = () => {
 												variant="top"
 												src={
 													"https://starwars-visualguide.com/assets/img/characters/" +
-													(index + 1) +
+													item.url.match(/\d/g).join("") +
 													".jpg"
 												}
 												width="100%"
@@ -45,8 +42,17 @@ export const Home = () => {
 											<Card.Body>
 												<Card.Title>{item.name}</Card.Title>
 												<Card.Text>
-													Some quick example text to build on the card title and make up the
-													bulk of the cardcontent.
+													<ListGroup className="list-group-flush d-flex pr-auto">
+														<ListGroupItem className="pr-aut0">
+															Height:
+															{" " + item.height + "cm"}
+															{console.log(item.url.match(/\d/g).join(""))}
+														</ListGroupItem>
+														<ListGroupItem>Mass {" " + item.mass + "kg"}</ListGroupItem>
+														<ListGroupItem>
+															Year of birth: {" " + item.birth_year}
+														</ListGroupItem>
+													</ListGroup>
 												</Card.Text>
 												<div className="row">
 													{store.favorites.includes(item.name) ? (
@@ -90,8 +96,9 @@ export const Home = () => {
 											<Card.Img
 												variant="top"
 												src={
+													//El siguiente codigo sirve para obtener las imagenes basadas en el numero de la url en la API
 													"https://starwars-visualguide.com/assets/img/vehicles/" +
-													(index + 1) +
+													item.url.match(/\d/g).join("") +
 													".jpg"
 												}
 												onError={e => {
@@ -105,8 +112,19 @@ export const Home = () => {
 											<Card.Body>
 												<Card.Title>{item.name}</Card.Title>
 												<Card.Text>
-													Some quick example text to build on the card title and make up the
-													bulk of the cardcontent.
+													<ListGroup className="list-group-flush d-flex pr-auto">
+														<ListGroupItem className="pr-aut0">
+															Number of passengers:
+															{" " + item.passengers}
+															{console.log(item.url.match(/\d/g).join(""))}
+														</ListGroupItem>
+														<ListGroupItem>
+															This is a {" " + item.vehicle_class + " vehicle"}
+														</ListGroupItem>
+														<ListGroupItem>
+															Manufacturer: {" " + item.manufacturer}
+														</ListGroupItem>
+													</ListGroup>
 												</Card.Text>
 												<div className="row">
 													{store.favorites.includes(item.name) ? (
@@ -151,7 +169,7 @@ export const Home = () => {
 												variant="top"
 												src={
 													"https://starwars-visualguide.com/assets/img/planets/" +
-													(index + 1) +
+													item.url.match(/\d/g).join("") +
 													".jpg"
 												}
 												width="100%"
@@ -166,10 +184,15 @@ export const Home = () => {
 												<Card.Text>
 													<ListGroup className="list-group-flush d-flex pr-auto">
 														<ListGroupItem className="pr-aut0">
-															The climate here is:{" "}
+															The climate here is:
+															{" " + item.climate}
 														</ListGroupItem>
-														<ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
-														<ListGroupItem>Vestibulum at eros</ListGroupItem>
+														<ListGroupItem>
+															The diameter of this planet is: {" " + item.diameter + "km"}
+														</ListGroupItem>
+														<ListGroupItem>
+															Population: {" " + item.population}
+														</ListGroupItem>
 													</ListGroup>
 												</Card.Text>
 												<div className="row">

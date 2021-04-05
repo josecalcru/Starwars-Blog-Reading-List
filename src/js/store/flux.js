@@ -9,7 +9,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		},
 		actions: {
 			fetchPeople: async () => {
-				const url = "https://www.swapi.tech/api/people/";
+				const url = "https://swapi.dev/api/people/";
 				const config = {
 					method: "GET",
 					headers: {
@@ -22,7 +22,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ peopleList: json.results });
 			},
 			fetchPlanets: async () => {
-				const url = "https://www.swapi.tech/api/planets/";
+				const store = getStore();
+				const url = "https://swapi.dev/api/planets/";
 				const config = {
 					method: "GET",
 					headers: {
@@ -31,28 +32,29 @@ const getState = ({ getStore, getActions, setStore }) => {
 				};
 				const response = await fetch(url, config);
 				const json = await response.json();
-				console.log(">>Data", json.results);
 				setStore({ planetsList: json.results });
-			},
-			fetchDetailsPlanets: async () => {
-				await getActions().fetchPlanets();
-				const store = getStore();
-				const config = {
-					method: "GET",
-					headers: {
-						"Content-type": "application/json"
-					}
-				};
 
-				store.planetsList.map(async (item, index) => {
-					const response = await fetch(item.url, config);
-					const json = await response.json();
-					console.log(">>Data", json.result.properties);
-					setStore({ planetsDetailsList: [...store.planetsDetailsList, json.result.properties] });
-				});
+				console.log(">>Planets", json.results);
 			},
-			fetchStarships: async () => {
-				const url = "https://www.swapi.tech/api/starships/";
+			// fetchDetailsPlanets: async () => {
+			// 	await getActions().fetchPlanets();
+			// 	const store = getStore();
+			// 	const config = {
+			// 		method: "GET",
+			// 		headers: {
+			// 			"Content-type": "application/json"
+			// 		}
+			// 	};
+
+			// 	store.planetsList.map(async (item, index) => {
+			// 		const response = await fetch(item.url, config);
+			// 		const json = await response.json();
+			// 		console.log(">>planetsdetails", json.result.properties);
+			// 		await setStore({ planetsDetailsList: [...store.planetsDetailsList, json.result.properties] });
+			// 	});
+			// },
+			fetchVehicles: async () => {
+				const url = "https://swapi.dev/api/vehicles/";
 				const config = {
 					method: "GET",
 					headers: {
