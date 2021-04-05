@@ -4,6 +4,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			favorites: [],
 			peopleList: [],
 			planetsList: [],
+			planetsDetailsList: [],
 			vehicleList: []
 		},
 		actions: {
@@ -32,6 +33,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const json = await response.json();
 				console.log(">>Data", json.results);
 				setStore({ planetsList: json.results });
+			},
+			fetchDetailsPlanets: async () => {
+				await getActions().fetchPlanets();
+				const store = getStore();
+				const config = {
+					method: "GET",
+					headers: {
+						"Content-type": "application/json"
+					}
+				};
+
+				store.planetsList.map(async (item, index) => {
+					const response = await fetch(item.url, config);
+					const json = await response.json();
+					console.log(">>Data", json.result.properties);
+					setStore({ planetsDetailsList: [...store.planetsDetailsList, json.result.properties] });
+				});
 			},
 			fetchStarships: async () => {
 				const url = "https://www.swapi.tech/api/starships/";
