@@ -42,7 +42,9 @@ h1{
   border:0px solid black;
   transition:.2s;
   margin: 3rem;
+  min-height: 650px;
 }
+
 
 
 .carousel-fade .carousel-inner .item {
@@ -92,7 +94,7 @@ h1{
     border-color: #FFDE06;
 }
 
-.btn-primary:hover, .btn:focus {
+.btn-primary:hover, .btn:focus, .btn-primary:active {
     background-color: #FFDE06 !important;
     color: black !important;
     border: 0px !important;

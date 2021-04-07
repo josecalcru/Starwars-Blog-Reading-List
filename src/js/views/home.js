@@ -17,7 +17,7 @@ export const Home = () => {
 	return (
 		<div className="row justify-content-center">
 			<div className="text-center justify-content-center mt-10 row">
-				<div className="col-4">
+				<div className="col-xl-4 col-xs-12">
 					<img
 						className="titulos mt-10"
 						src="https://fontmeme.com/permalink/210404/4f9a8d2a56104d9a70a065d31b072c05.png"
@@ -39,14 +39,13 @@ export const Home = () => {
 												}
 												width="100%"
 											/>
-											<Card.Body>
+											<Card.Body className="d-flex flex-column justify-content-between">
 												<Card.Title>{item.name}</Card.Title>
 												<Card.Text>
 													<ListGroup className="list-group-flush d-flex pr-auto">
 														<ListGroupItem className="pr-aut0">
 															Height:
 															{" " + item.height + "cm"}
-															{console.log(item.url.match(/\d/g).join(""))}
 														</ListGroupItem>
 														<ListGroupItem>Mass {" " + item.mass + "kg"}</ListGroupItem>
 														<ListGroupItem>
@@ -80,7 +79,7 @@ export const Home = () => {
 						</Carousel>
 					</div>
 				</div>
-				<div className="col-4">
+				<div className="col-xl-4 col-xs-12">
 					<img
 						className="titulos mt-10"
 						src="https://fontmeme.com/permalink/210405/55aa5998f5d6fe121c15f2de38630555.png"
@@ -109,14 +108,13 @@ export const Home = () => {
 												width="100%"
 											/>
 
-											<Card.Body>
+											<Card.Body d-flex flex-column justify-content-between>
 												<Card.Title>{item.name}</Card.Title>
 												<Card.Text>
 													<ListGroup className="list-group-flush d-flex pr-auto">
 														<ListGroupItem className="pr-aut0">
 															Number of passengers:
 															{" " + item.passengers}
-															{console.log(item.url.match(/\d/g).join(""))}
 														</ListGroupItem>
 														<ListGroupItem>
 															This is a {" " + item.vehicle_class + " vehicle"}
@@ -152,7 +150,7 @@ export const Home = () => {
 						</Carousel>
 					</div>
 				</div>
-				<div className="col-4">
+				<div className="col-xl-4 col-xs-12">
 					<img
 						className="titulos mt-10"
 						src="https://fontmeme.com/permalink/210405/af9d65e131d914c5a13e3f66cf1d55ee.png"
